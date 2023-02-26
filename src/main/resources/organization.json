@@ -1,0 +1,71 @@
+{
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "displayName",
+    "desc",
+    "url",
+    "website",
+    "teamType",
+    "logoHash",
+    "logoUrl"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 24,
+      "examples": [
+        "81de425028rtp293603497a4"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "examples": [
+        "workspace5254"
+      ]
+    },
+    "displayName": {
+      "type": "string",
+      "examples": [
+        "My Workspace"
+      ]
+    },
+    "desc": {
+      "type": "string",
+      "examples": [
+        "My new workspace"
+      ]
+    },
+    "url": {
+      "type": "string",
+      "examples": [
+        "https://trello.com/newworkspace413"
+      ]
+    },
+    "website": {
+      "type": "string",
+      "examples": [
+        "https://trello.com"
+      ]
+    },
+    "teamType": {
+      "type": "string",
+      "examples": [
+        "engineering-it"
+      ]
+    },
+    "logoHash": {
+      "type": "string",
+      "examples": [
+        "6c0ff06bd70f1ae686e9a9c6f83116dd"
+      ]
+    },
+    "logoUrl": {
+      "type": "string",
+      "examples": [
+        "https://trello-logos.s3.amazonaws.com/6c0ff06bd70f1ae686e9a9c6f83116dd"
+      ]
+    }
+  }
+}
