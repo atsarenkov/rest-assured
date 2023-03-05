@@ -30,4 +30,4 @@ jobs:
       run: mvn -B -DskipTests package --file pom.xml
       
     - name: Run tests
-      run: sh ./.github/scripts/ci.sh
+      run: bash ./.github/scripts/ci.sh
