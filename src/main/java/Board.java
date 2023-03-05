@@ -1,8 +1,8 @@
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Builder;
+import lombok.Data;
 
-@Getter @Setter
+@Data @Builder
 public class Board {
     private String id;
     private String idOrganization;

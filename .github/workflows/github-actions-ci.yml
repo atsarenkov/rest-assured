@@ -30,8 +30,4 @@ jobs:
       run: mvn -B -DskipTests package --file pom.xml
       
     - name: Run tests
-      run: |
-        mvn clean test \
-          -DKEY=${{ secrets.KEY }} \
-          -DTOKEN=${{ secrets.TOKEN }} \
-          -DORGANIZATION_ID=${{ secrets.ORGANIZATION_ID }}
+      run: sh ./.github/scripts/ci.sh

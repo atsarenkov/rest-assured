@@ -6,13 +6,14 @@ import org.testng.annotations.*;
 
 public class TrelloBoardsTest {
     Response response;
-    Board board = new Board();
     private String boardId;
 
-    @Test(description = "Create A Board", groups = { "functional" }, priority = 1)
+    @Test(description = "Create A Board", priority = 1)
     public void createBoard() {
-        board.setPermissionLevel("public");
-        board.setBackground("green");
+        Board board = Board.builder().
+                permissionLevel("public").
+                background("green").
+                build();
         response = given().
                 spec(requestSpec()).
                 queryParam("name", "New Board").
@@ -22,13 +23,13 @@ public class TrelloBoardsTest {
         then().
                 spec(responseSpec()).
                 assertThat().
-                body("prefs.permissionLevel", equalTo(board.getPermissionLevel())).
-                body("prefs.background", equalTo(board.getBackground())).
+                body("prefs.permissionLevel", equalTo(board.getPermissionLevel()),
+                "prefs.background", equalTo(board.getBackground())).
                 extract().response();
         boardId = response.path("id");
     }
 
-    @Test(description = "Get A Board", groups = { "functional" }, priority = 2, dependsOnMethods = { "createBoard" })
+    @Test(description = "Get A Board", priority = 2, dependsOnMethods = { "createBoard" })
     public void getBoard() {
         given().
                 spec(requestSpec()).
@@ -40,7 +41,7 @@ public class TrelloBoardsTest {
                 body("name", equalTo("New Board"));
     }
 
-    @Test(description = "Update A Board", groups = { "functional" }, priority = 3, dependsOnMethods = { "createBoard" })
+    @Test(description = "Update A Board", priority = 3, dependsOnMethods = { "createBoard" })
     public void updateBoard() {
         given().
                 spec(requestSpec()).
@@ -53,7 +54,7 @@ public class TrelloBoardsTest {
                 body("desc", equalTo("Agile Board"));
     }
 
-    @Test(description = "Delete A Board", groups = { "functional" }, priority = 4, dependsOnMethods = { "createBoard" })
+    @Test(description = "Delete A Board", priority = 4, dependsOnMethods = { "createBoard" })
     public void deleteBoard() {
         given().
                 spec(requestSpec()).
