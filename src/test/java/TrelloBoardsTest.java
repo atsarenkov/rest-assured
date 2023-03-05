@@ -24,7 +24,7 @@ public class TrelloBoardsTest {
                 spec(responseSpec()).
                 assertThat().
                 body("prefs.permissionLevel", equalTo(board.getPermissionLevel()),
-                "prefs.background", equalTo(board.getBackground())).
+                     "prefs.background", equalTo(board.getBackground())).
                 extract().response();
         boardId = response.path("id");
     }
