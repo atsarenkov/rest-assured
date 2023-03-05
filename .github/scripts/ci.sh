@@ -1,6 +1,6 @@
 #!/bin/bash
 
 mvn clean test \
-  -DKEY=${{secrets.KEY}} \
-  -DTOKEN=${{secrets.TOKEN}} \
-  -DORGANIZATION_ID=${{secrets.ORGANIZATION_ID}}
+  -DKEY=$({secrets.KEY}) \
+  -DTOKEN=$({secrets.TOKEN}) \
+  -DORGANIZATION_ID=$({secrets.ORGANIZATION_ID)}
